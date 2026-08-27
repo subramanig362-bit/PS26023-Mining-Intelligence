@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SETU - Login</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <!-- SETU Logo -->
+            <div class="logo">
+                S
+            </div>
+
+            <h1>SETU</h1>
+
+            <p class="subtitle">
+                AI-Powered Geological, Mining & Reporting Solution
+            </p>
+
+            <!-- Role Selection -->
+            <div class="role-selection">
+
+                <button
+                    class="role-button active"
+                    id="officialBtn"
+                    onclick="selectRole('official')">
+                    Official Officer
+                </button>
+
+                <button
+                    class="role-button"
+                    id="subsidiaryBtn"
+                    onclick="selectRole('subsidiary')">
+                    Subsidiary
+                </button>
+
+            </div>
+
+            <!-- Role Information -->
+            <div class="role-info" id="roleInfo">
+
+                <strong>Official Officer</strong>
+
+                <span>
+                    Administrator access • All documents & reports
+                </span>
+
+            </div>
+
+            <!-- Username -->
+            <label for="username">
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter username">
+
+            <!-- Password -->
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter password">
+
+            <!-- Login -->
+            <button
+                class="login-button"
+                onclick="login()">
+
+                Login as Official Officer
+
+            </button>
+
+            <!-- Error -->
+            <p id="errorMessage" class="error-message"></p>
+
+            <!-- Demo credentials -->
+            <div class="demo-box">
+
+                <strong>Demo Login</strong>
+
+                <p>
+                    Official Officer:
+                    <br>
+                    <b>admin</b> / <b>admin123</b>
+                </p>
+
+                <p>
+                    Subsidiary:
+                    <br>
+                    <b>subsidiary</b> / <b>sub123</b>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ================= DASHBOARD ================= -->
+
+<div id="dashboardPage" class="dashboard-page">
+
+    <!-- TOP NAVBAR -->
+
+    <header class="topbar">
+
+        <div class="brand-area">
+
+            <div class="small-logo">
+                S
+            </div>
+
+            <div>
+                <strong>SETU</strong>
+
+                <span>
+                    Connecting Subsidiaries • Ministry • Data • Decisions
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="user-area">
+
+            <span id="userRole" class="role-badge">
+                OFFICIAL / ADMIN
+            </span>
+
+            <span id="loggedUser">
+                admin
+            </span>
+
+            <button
+                class="logout-button"
+                onclick="logout()">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN LAYOUT -->
+
+    <div class="dashboard-layout">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <button
+                class="menu-button active"
+                onclick="showSection('home', this)">
+
+                🏠 Dashboard
+
+            </button>
+
+
+            <button
+    class="menu-button"
+    id="documentsMenu"
+    onclick="showSection('documents', this)">
+
+                📄 Documents
+
+            </button>
+
+
+            <button
+                class="menu-button"
+                onclick="showSection('aiQuery', this)">
+
+                🤖 AI Query
+
+            </button>
+
+
+            <button
+                class="menu-button"
+                onclick="showSection('reports', this)">
+
+                📊 Reports
+
+            </button>
+
+
+            <button
+                class="menu-button"
+                onclick="showSection('topics', this)">
+
+                ☁ Topics & Word Cloud
+
+            </button>
+
+
+            <button
+    class="menu-button"
+    id="validationMenu"
+    onclick="showSection('validation', this)">
+
+                ✓ Validation & Trust
+
+            </button>
+
+        </aside>
+
+
+        <!-- CONTENT -->
+
+        <main class="dashboard-content">
+
+
+            <!-- HOME -->
+
+            <section id="home" class="dashboard-section">
+
+                <div class="welcome-box">
+
+                    <div>
+
+                       <small id="welcomeRole">
+    WELCOME TO SETU
+</small>
+
+<h2>
+    AI-assisted mining reporting
+    built on verified information.
+</h2>
+
+<p id="accessMessage">
+    Upload documents, retrieve evidence,
+    identify conflicts and generate
+    traceable reports.
+</p>
+
+                    </div>
+
+                    <div class="welcome-icon">
+                        SETU
+                    </div>
+
+                </div>
+
+
+                <!-- STATISTICS -->
+<div
+    id="accessPanel"
+    class="access-panel">
+
+    <div>
+
+        <strong id="accessTitle">
+            Access Level
+        </strong>
+
+        <p id="accessDescription">
+            Loading access permissions...
+        </p>
+
+    </div>
+
+    <div
+        id="accessBadge"
+        class="access-badge">
+
+        FULL ACCESS
+
+    </div>
+
+</div>
+                <div class="stats-container">
+
+                    <div class="stat-card">
+
+                        <span>Documents</span>
+
+                        <strong id="documentCount">
+                            25
+                        </strong>
+
+                        <small>
+                            Accessible to you
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>Verified Records</span>
+
+                        <strong>
+                            94%
+                        </strong>
+
+                        <small>
+                            Source-backed
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>Pending Review</span>
+
+                        <strong>
+                            03
+                        </strong>
+
+                        <small>
+                            Needs human review
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>Report Accuracy</span>
+
+                        <strong>
+                            97%
+                        </strong>
+
+                        <small>
+                            Demo metric
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FEATURES -->
+
+                <div class="dashboard-grid">
+
+
+                    <div class="dashboard-card">
+
+                        <div class="card-heading">
+
+                            <h3>
+                                6 Key Features
+                            </h3>
+
+                            <span>
+                                Current Prototype
+                            </span>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <b>01</b>
+
+                            <div>
+
+                                <strong>
+                                    Source–Chapter–Page Tracking
+                                </strong>
+
+                                <p>
+                                    Every answer points to
+                                    its original source.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <b>02</b>
+
+                            <div>
+
+                                <strong>
+                                    Duplicate Detection
+                                </strong>
+
+                                <p>
+                                    Detect repeated or similar
+                                    uploaded content.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <b>03</b>
+
+                            <div>
+
+                                <strong>
+                                    Conflict Identification
+                                </strong>
+
+                                <p>
+                                    Identify different values
+                                    for the same record.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <b>04</b>
+
+                            <div>
+
+                                <strong>
+                                    No Guessing
+                                </strong>
+
+                                <p>
+                                    Show "No verified record
+                                    found" instead of guessing.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <b>05</b>
+
+                            <div>
+
+                                <strong>
+                                    Custom Reports
+                                </strong>
+
+                                <p>
+                                    Generate Production,
+                                    Geology or Safety reports.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <b>06</b>
+
+                            <div>
+
+                                <strong>
+                                    Accuracy Percentage
+                                </strong>
+
+                                <p>
+                                    Display trust and accuracy
+                                    indicators.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RECENT ACTIVITY -->
+
+                    <div class="dashboard-card">
+
+                        <div class="card-heading">
+
+                            <h3>
+                                Recent Activity
+                            </h3>
+
+                            <span>
+                                Demo
+                            </span>
+
+                        </div>
+
+
+                        <div class="activity">
+
+                            <p>
+                                🟢 Annual Production Report
+                                2024 verified
+                            </p>
+
+                            <p>
+                                🟠 Geological Report 2024
+                                needs review
+                            </p>
+
+                            <p>
+                                🔵 Safety Report 2024
+                                indexed
+                            </p>
+
+                            <p>
+                                🟣 Production report generated
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- DOCUMENTS -->
+
+            <section
+                id="documents"
+                class="dashboard-section">
+
+                <h2>
+                    Document Repository
+                </h2>
+
+                <p class="section-description">
+                    Manage documents available to your role.
+                </p>
+
+
+                <div class="dashboard-card">
+
+                    <div class="document-header">
+
+                        <h3>
+                            Available Documents
+                        </h3>
+
+                        <button class="upload-button">
+
+                            + Upload Document
+
+                        </button>
+
+                    </div>
+
+
+                    <table>
+
+                        <thead>
+
+                             <tr>
+
+                                <th>Document</th>
+
+                                <th>Type</th>
+
+                                <th>Chapter</th>
+
+                                <th>Access</th>
+
+                                <th>Status</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    Annual Production Report 2024
+                                </td>
+
+                                <td>PDF</td>
+
+                                <td>
+                                    Chapter 2 – Page 22
+                                </td>
+
+                                <td>
+                                    All
+                                </td>
+
+                                <td class="verified">
+                                    ✓ Verified
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Geological Report 2024
+                                </td>
+
+                                <td>PDF</td>
+
+                                <td>
+                                    Chapter 2 – Page 15
+                                </td>
+
+                                <td>
+                                    All
+                                </td>
+
+                                <td class="verified">
+                                    ✓ Verified
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Mining Report 2024
+                                </td>
+
+                                <td>PDF</td>
+
+                                <td>
+                                    Chapter 5 – Page 31
+                                </td>
+
+                                <td>
+                                    All
+                                </td>
+
+                                <td class="verified">
+                                    ✓ Verified
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Safety Report 2024
+                                </td>
+
+                                <td>PDF</td>
+
+                                <td>
+                                    Chapter 6 – Page 42
+                                </td>
+
+                                <td>
+                                    All
+                                </td>
+
+                                <td class="review">
+                                    ! Review
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- AI QUERY -->
+
+            <section
+                id="aiQuery"
+                class="dashboard-section">
+
+                <h2>
+                    AI Query & Response
+                </h2>
+
+                <p class="section-description">
+                    Ask SETU a natural-language question.
+                </p>
+
+
+                <div class="dashboard-card">
+
+                    <h3>
+                        Ask SETU
+                    </h3>
+
+
+                    <textarea
+                        id="question"
+                        placeholder="Example: What was the coal production in 2024?">
+                    </textarea>
+
+
+                    <button
+                        class="generate-button"
+                        onclick="askQuestion()">
+
+                        Ask SETU
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="answerBox"
+                    class="dashboard-card answer-box">
+
+                    <span class="ai-label">
+                        AI RESPONSE
+                    </span>
+
+                    <h3>
+                        Answer
+                    </h3>
+
+                    <p id="answer">
+                        Your verified answer will appear here.
+                    </p>
+
+
+                    <div class="source-box">
+
+                        <strong>
+                            Evidence / Source
+                        </strong>
+
+                        <p id="source">
+                            Source will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- REPORTS -->
+
+            <section
+                id="reports"
+                class="dashboard-section">
+
+                <h2>
+                    Custom Report Generator
+                </h2>
+
+                <p class="section-description">
+                    Select the type of report you want SETU to generate.
+                </p>
+
+
+                <div class="report-grid">
+
+
+                    <div class="dashboard-card">
+
+                        <h3>
+                            Select Report Type
+                        </h3>
+
+
+                        <button
+                            class="report-option"
+                            onclick="selectReport('Production')">
+
+                            📊 Production Report
+
+                        </button>
+
+
+                        <button
+                            class="report-option"
+                            onclick="selectReport('Geology')">
+
+                            🪨 Geology Report
+
+                        </button>
+
+
+                        <button
+                            class="report-option"
+                            onclick="selectReport('Safety')">
+
+                            ⚠ Safety Report
+
+                        </button>
+
+
+                        <button
+                            class="report-option"
+                            onclick="selectReport('Custom')">
+
+                            ✦ Custom Inquiry
+
+                        </button>
+
+
+                        <button
+                            class="generate-button"
+                            onclick="generateReport()">
+
+                            Generate Report
+
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="reportPreview"
+                        class="dashboard-card report-preview">
+
+                        <small>
+                            SETU GENERATED REPORT
+                        </small>
+
+                        <h3>
+                            Production Report
+                        </h3>
+
+                        <hr>
+
+                        <p>
+                            Verified production information
+                            retrieved from authorized documents.
+                        </p>
+
+                        <p>
+                            <strong>Source:</strong><br>
+
+                            Annual Production Report 2024
+                            → Chapter 2
+                            → Page 22
+                        </p>
+
+
+                        <div class="accuracy">
+
+                            Accuracy / Trust Score
+
+                            <strong>
+                                97%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- TOPICS -->
+
+            <section
+                id="topics"
+                class="dashboard-section">
+
+                <h2>
+                    Topics & Word Cloud
+                </h2>
+
+                <p class="section-description">
+                    Important topics identified from documents.
+                </p>
+
+
+                <div class="dashboard-grid">
+
+                    <div class="dashboard-card word-cloud">
+
+                        <span class="big-word">
+                            COAL
+                        </span>
+
+                        <span>
+                            production
+                        </span>
+
+                        <span class="medium-word">
+                            geology
+                        </span>
+
+                        <span>
+                            reserve
+                        </span>
+
+                        <span class="medium-word">
+                            mining
+                        </span>
+
+                        <span>
+                            safety
+                        </span>
+
+                        <span>
+                            seam
+                        </span>
+
+                        <span>
+                            exploration
+                        </span>
+
+                        <span>
+                            strata
+                        </span>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <h3>
+                            Topic → Source
+                        </h3>
+
+                        <p>
+                            <strong>Coal Production</strong><br>
+                            Annual Production Report 2024
+                            → Chapter 2 → Page 22
+                        </p>
+
+                        <p>
+                            <strong>Geological Structure</strong><br>
+                            Geological Report 2024
+                            → Chapter 2 → Page 15
+                        </p>
+
+                        <p>
+                            <strong>Safety Measures</strong><br>
+                            Safety Report 2024
+                            → Chapter 6 → Page 42
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- VALIDATION -->
+
+            <section
+                id="validation"
+                class="dashboard-section">
+
+                <h2>
+                    Validation & Trust
+                </h2>
+
+                <p class="section-description">
+                    Data quality and verification mechanisms.
+                </p>
+
+
+                <div class="validation-grid">
+
+
+                    <div class="validation-card good">
+
+                        <span>✓</span>
+
+                        <h3>
+                            Source Verified
+                        </h3>
+
+                        <p>
+                            Evidence is linked to document,
+                            chapter and page.
+                        </p>
+
+                    </div>
+
+
+                    <div class="validation-card warning">
+
+                        <span>!</span>
+
+                        <h3>
+                            Conflict Found
+                        </h3>
+
+                        <p>
+                            Different documents contain
+                            different values for the same record.
+                        </p>
+
+                    </div>
+
+
+                    <div class="validation-card purple">
+
+                        <span>⊘</span>
+
+                        <h3>
+                            No Record
+                        </h3>
+
+                        <p>
+                            No verified value is available.
+                            SETU will not guess.
+                        </p>
+
+                    </div>
+
+
+                    <div class="validation-card blue">
+
+                        <span>↻</span>
+
+                        <h3>
+                            Duplicate Detection
+                        </h3>
+
+                        <p>
+                            Similar uploaded content can be
+                            detected before indexing.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+</div>
+    <script src="script.js"></script>
+
+</body>
+</html>
