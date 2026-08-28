@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SETU - Login</title>
+    <title>DASK - Login</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,12 +15,12 @@
 
         <div class="login-card">
 
-            <!-- SETU Logo -->
+            <!-- DASK Logo -->
             <div class="logo">
-                S
+                D
             </div>
 
-            <h1>SETU</h1>
+            <h1>DASK</h1>
 
             <p class="subtitle">
                 AI-Powered Geological, Mining & Reporting Solution
@@ -121,11 +121,11 @@
         <div class="brand-area">
 
             <div class="small-logo">
-                S
+                D
             </div>
 
             <div>
-                <strong>SETU</strong>
+                <strong>DASK</strong>
 
                 <span>
                     Connecting Subsidiaries • Ministry • Data • Decisions
@@ -239,7 +239,7 @@
                     <div>
 
                        <small id="welcomeRole">
-    WELCOME TO SETU
+    WELCOME TO DASK
 </small>
 
 <h2>
@@ -256,7 +256,7 @@
                     </div>
 
                     <div class="welcome-icon">
-                        SETU
+                        DASK
                     </div>
 
                 </div>
@@ -564,20 +564,50 @@
                             Available Documents
                         </h3>
 
-                        <button class="upload-button">
+                        <input
+    type="file"
+    id="documentInput"
+    accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg"
+    hidden
+    onchange="uploadDocument()">
 
-                            + Upload Document
+<button
+    class="upload-button"
+    onclick="document.getElementById('documentInput').click()">
 
-                        </button>
+    + Upload Document
+
+</button>
 
                     </div>
+<div
+    id="uploadStatus"
+    class="upload-status"
+    style="display: none;">
 
+    <div class="processing-icon">
+        ⟳
+    </div>
+
+    <div>
+
+        <strong id="processingTitle">
+            Analyzing document...
+        </strong>
+
+        <p id="processingMessage">
+            DASK is processing the uploaded document.
+        </p>
+
+    </div>
+
+</div>
 
                     <table>
 
                         <thead>
 
-                             <tr>
+                            <tr>
 
                                 <th>Document</th>
 
@@ -596,97 +626,114 @@
 
                         <tbody>
 
-                            <tr>
+                            <tr class="document-row">
+    <td>Annual Production Report 2024</td>
+    <td>PDF</td>
+    <td>Chapter 2 – Production – Page 22</td>
+    <td>All</td>
+    <td class="verified">✓ Verified</td>
+</tr>
 
-                                <td>
-                                    Annual Production Report 2024
-                                </td>
+<tr class="document-row">
+    <td>Geological Report 2024</td>
+    <td>PDF</td>
+    <td>Chapter 2 – Geological Information – Page 15</td>
+    <td>All</td>
+    <td class="verified">✓ Verified</td>
+</tr>
 
-                                <td>PDF</td>
+<tr class="document-row">
+    <td>Monthly Production Summary 2024</td>
+    <td>PDF</td>
+    <td>Chapter 3 – Monthly Production – Page 18</td>
+    <td>All</td>
+    <td class="verified">✓ Verified</td>
+</tr>
 
-                                <td>
-                                    Chapter 2 – Page 22
-                                </td>
+<tr class="document-row">
+    <td>Coal Quality Analysis 2024</td>
+    <td>PDF</td>
+    <td>Chapter 4 – Coal Quality – Page 27</td>
+    <td>All</td>
+    <td class="verified">✓ Verified</td>
+</tr>
 
-                                <td>
-                                    All
-                                </td>
+<tr class="document-row">
+    <td>Exploration Progress Report 2024</td>
+    <td>PDF</td>
+    <td>Chapter 5 – Exploration – Page 31</td>
+    <td>All</td>
+    <td class="verified">✓ Verified</td>
+</tr>
 
-                                <td class="verified">
-                                    ✓ Verified
-                                </td>
+<tr class="document-row restricted-document">
+    <td>Mining Operations Report 2024</td>
+    <td>PDF</td>
+    <td>Chapter 5 – Mining Operations – Page 36</td>
+    <td>Official Only</td>
+    <td class="verified">✓ Verified</td>
+</tr>
 
-                            </tr>
+<tr class="document-row restricted-document">
+    <td>Safety Report 2024</td>
+    <td>PDF</td>
+    <td>Chapter 6 – Safety – Page 42</td>
+    <td>Official Only</td>
+    <td class="verified">✓ Verified</td>
+</tr>
 
+<tr class="document-row restricted-document">
+    <td>Environmental Compliance Report 2024</td>
+    <td>PDF</td>
+    <td>Chapter 7 – Environment – Page 48</td>
+    <td>Official Only</td>
+    <td class="verified">✓ Verified</td>
+</tr>
 
-                            <tr>
+<tr class="document-row restricted-document">
+    <td>Mine Closure &amp; Reclamation Report 2024</td>
+    <td>PDF</td>
+    <td>Chapter 8 – Mine Closure – Page 55</td>
+    <td>Official Only</td>
+    <td class="verified">✓ Verified</td>
+</tr>
 
-                                <td>
-                                    Geological Report 2024
-                                </td>
+<tr class="document-row restricted-document">
+    <td>Equipment &amp; Productivity Report 2024</td>
+    <td>PDF</td>
+    <td>Chapter 9 – Equipment – Page 61</td>
+    <td>Official Only</td>
+    <td class="verified">✓ Verified</td>
+</tr>
+<tr
+    id="uploadedDocumentRow"
+    style="display: none;">
 
-                                <td>PDF</td>
+    <td id="uploadedDocumentName">
+        New Document
+    </td>
 
-                                <td>
-                                    Chapter 2 – Page 15
-                                </td>
+    <td id="uploadedDocumentType">
+        PDF
+    </td>
 
-                                <td>
-                                    All
-                                </td>
+    <td>
+        Auto-detected
+    </td>
 
-                                <td class="verified">
-                                    ✓ Verified
-                                </td>
+    <td>
+        Authorized
+    </td>
 
-                            </tr>
+    <td
+        id="uploadedDocumentStatus"
+        class="verified">
 
+        ✓ Verified
 
-                            <tr>
+    </td>
 
-                                <td>
-                                    Mining Report 2024
-                                </td>
-
-                                <td>PDF</td>
-
-                                <td>
-                                    Chapter 5 – Page 31
-                                </td>
-
-                                <td>
-                                    All
-                                </td>
-
-                                <td class="verified">
-                                    ✓ Verified
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    Safety Report 2024
-                                </td>
-
-                                <td>PDF</td>
-
-                                <td>
-                                    Chapter 6 – Page 42
-                                </td>
-
-                                <td>
-                                    All
-                                </td>
-
-                                <td class="review">
-                                    ! Review
-                                </td>
-
-                            </tr>
-
+</tr>
                         </tbody>
 
                     </table>
@@ -707,14 +754,14 @@
                 </h2>
 
                 <p class="section-description">
-                    Ask SETU a natural-language question.
+                    Ask DASK a natural-language question.
                 </p>
 
 
                 <div class="dashboard-card">
 
                     <h3>
-                        Ask SETU
+                        Ask DASK
                     </h3>
 
 
@@ -725,10 +772,11 @@
 
 
                     <button
+                        id="askButton"
                         class="generate-button"
                         onclick="askQuestion()">
 
-                        Ask SETU
+                        Ask DASK
 
                     </button>
 
@@ -780,7 +828,7 @@
                 </h2>
 
                 <p class="section-description">
-                    Select the type of report you want SETU to generate.
+                    Select the type of report you want DASK to generate.
                 </p>
 
 
@@ -792,7 +840,13 @@
                         <h3>
                             Select Report Type
                         </h3>
+                        <p
+    id="selectedReportText"
+    class="selected-report-text">
 
+    Selected: Production Report
+
+</p>
 
                         <button
                             class="report-option"
@@ -813,12 +867,13 @@
 
 
                         <button
-                            class="report-option"
-                            onclick="selectReport('Safety')">
+    id="safetyReportOption"
+    class="report-option restricted-report"
+    onclick="selectReport('Safety')">
 
-                            ⚠ Safety Report
+    ⚠ Safety Report 🔒
 
-                        </button>
+</button>
 
 
                         <button
@@ -837,7 +892,28 @@
                             Generate Report
 
                         </button>
+                        <div
+    id="exportButtons"
+    class="export-buttons"
+    style="display: none;">
 
+    <button
+        class="export-button"
+        onclick="exportReport('PDF')">
+
+        📄 Export PDF
+
+    </button>
+
+    <button
+        class="export-button"
+        onclick="exportReport('Word')">
+
+        📝 Export Word
+
+    </button>
+
+</div>
                     </div>
 
 
@@ -846,7 +922,7 @@
                         class="dashboard-card report-preview">
 
                         <small>
-                            SETU GENERATED REPORT
+                            DASK GENERATED REPORT
                         </small>
 
                         <h3>
@@ -1035,7 +1111,7 @@
 
                         <p>
                             No verified value is available.
-                            SETU will not guess.
+                            DASK will not guess.
                         </p>
 
                     </div>
