@@ -1,5 +1,5 @@
 // ===============================
-// SETU LOGIN & DASHBOARD
+// DASK LOGIN & DASHBOARD
 // ===============================
 
 
@@ -367,7 +367,7 @@ function askQuestion() {
     // ===============================
 
     answer.textContent =
-        "SETU is searching verified documents...";
+        "DASK is searching verified documents...";
 
     source.textContent =
         "Retrieving supporting evidence...";
@@ -380,7 +380,7 @@ function askQuestion() {
     setTimeout(function() {
 
         answer.textContent =
-            "SETU is validating retrieved information...";
+            "DASK is validating retrieved information...";
 
         source.textContent =
             "Checking source, chapter and page...";
@@ -414,7 +414,7 @@ function askQuestion() {
             askButton.disabled = false;
 
             askButton.textContent =
-                "Ask SETU";
+                "Ask DASK";
 
         }
 
@@ -455,7 +455,7 @@ function processAIQuestion(
 
         source.innerHTML =
             "<strong>Status:</strong> Multiple questions detected.<br>" +
-            "Please enter a single question so SETU can provide a traceable answer.";
+            "Please enter a single question so DASK can provide a traceable answer.";
 
         return;
     }
@@ -476,7 +476,7 @@ function processAIQuestion(
 
         source.innerHTML =
             "<strong>Status:</strong> No verified source found.<br>" +
-            "SETU will not guess or generate unsupported information.";
+            "DASK will not guess or generate unsupported information.";
 
         return;
     }
@@ -759,7 +759,7 @@ if (
 
     source.innerHTML =
         "<strong>Status:</strong> No verified source found.<br>" +
-        "SETU will not guess or generate unsupported information.";
+        "DASK will not guess or generate unsupported information.";
 
 }
 
@@ -941,7 +941,7 @@ function generateReport() {
     preview.innerHTML = `
 
         <small>
-            SETU GENERATED REPORT
+            DASK GENERATED REPORT
         </small>
 
         <h3>
@@ -1223,7 +1223,7 @@ function uploadDocument() {
         "Analyzing document...";
 
     message.textContent =
-        "SETU is extracting document content and metadata.";
+        "DASK is extracting document content and metadata.";
 
 
     // Stage 2
@@ -1304,7 +1304,7 @@ function processUploadedDocument(file) {
 
     // Prototype duplicate simulation
     // If filename contains "duplicate",
-    // SETU marks it as a duplicate.
+    // DASK marks it as a duplicate.
 
     const isDuplicate =
         file.name
@@ -1318,7 +1318,7 @@ function processUploadedDocument(file) {
             "⚠ Duplicate content detected";
 
         message.textContent =
-            "Similar content was found in an existing document. SETU has flagged this document for review.";
+            "Similar content was found in an existing document. DASK has flagged this document for review.";
 
         status.textContent =
             "⚠ Duplicate";
@@ -1352,7 +1352,7 @@ function processUploadedDocument(file) {
 function exportReport(format) {
 
     alert(
-        "SETU Report Export\n\n" +
+        "DASK Report Export\n\n" +
         selectedReport +
         " Report is ready to export as " +
         format +
